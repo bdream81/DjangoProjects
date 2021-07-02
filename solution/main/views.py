@@ -12,3 +12,7 @@ class HomeView(View):
 class ServicesView(View):
     def get(self, request):
         return render(request, template_name="main/services.html")
+
+class NewsView(View):
+    def get(self, request):
+        return render(request, template_name="main/news.html")
