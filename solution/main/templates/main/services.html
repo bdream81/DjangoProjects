@@ -27,45 +27,16 @@
                 </svg>
                 <div class="row">
                     <div class="col">
+                        {% for item in data %}
                         <div class="card text-center">
-                            <div class="oval"><img class="card-img-top" src="{% static 'images/web-design.png' %}"
+                            <div class="oval"><img class="card-img-top" src="{% static item.img_path %}"
                                     alt=""></div>
                             <div class="card-body">
-                                <h3 class="card-title">Web Design</h3>
-                                <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-                                    eget.</p>
+                                <h3 class="card-title">{{item.title}}</h3>
+                                <p class="card-text">{{item.text}}</p>
                             </div>
                         </div>
-                        <div class="card text-center">
-                            <div class="oval"><img class="card-img-top" src="{% static 'images/marketing.png' %}"
-                                    alt=""></div>
-                            <div class="card-body">
-                                <h3 class="card-title">Marketing</h3>
-                                <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-                                    eget.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-center">
-                            <div class="oval"><img class="card-img-top" src="{% static 'images/seo.png' %}" alt="">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">SEO</h3>
-                                <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-                                    eget.</p>
-                            </div>
-                        </div>
-                        <div class="card text-center">
-                            <div class="oval"><img class="card-img-top" src="{% static 'images/graphics-design.png' %}"
-                                    alt="">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Graphics Design</h3>
-                                <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-                                    eget.</p>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
