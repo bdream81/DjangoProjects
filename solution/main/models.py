@@ -1,23 +1,26 @@
 from django.db import models
-from django.utils import timezone
+
 
 class ImgPathSingle(models.Model):
     img_path = models.CharField(max_length=100)
 
 class TextSingle(models.Model):
     header_single = models.TextField()
+
+class TextSingles(models.Model):
+    header_single = models.TextField()
     text_single = models.TextField()
-
-class TextGroup(models.Model):
-    header = models.TextField()
-    text = models.TextField()
-
+   
 class ImgTextGroup(models.Model):
     img_path = models.CharField(max_length=100)
     header = models.TextField()
     text = models.TextField()
 
-class Group4(models.Model):
+class IntCharGroup(models.Model):
+    header = models.IntegerField()
+    text = models.CharField(max_length=100)
+
+class CustomersGroup(models.Model):
     img_path = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)

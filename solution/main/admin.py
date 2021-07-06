@@ -1,11 +1,12 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import ImgPathSingle, TextSingle, TextGroup, ImgTextGroup, Group4, LogoGroup
+from .models import ImgPathSingle, TextSingle, TextSingles, ImgTextGroup, IntCharGroup, CustomersGroup, LogoGroup
 
 admin.site.register(ImgPathSingle)
 admin.site.register(TextSingle)
-admin.site.register(TextGroup)
+admin.site.register(TextSingles)
 admin.site.register(ImgTextGroup)
-admin.site.register(Group4)
+admin.site.register(IntCharGroup)
+admin.site.register(CustomersGroup)
 admin.site.register(LogoGroup)
