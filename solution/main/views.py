@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View
-
+# from .models import Client
 class AboutView(View):
     def get(self, request):
 
@@ -53,23 +53,40 @@ class AboutView(View):
         "name":"Effectively Increase", 
         "definition": " Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat."}
         ]
-
+        data_img = [{"img_path": "images/logo1.png"},
+          {"img_path": "images/logo2.png"},
+          {"img_path": "images/logo3.png"},
+          {"img_path": "images/logo4.png"},
+          {"img_path": "images/logo5.png"}
+          ]
         return render(request, template_name="main/about.html",
-        context={"data1": data1, "data2": data2, "data3": data3})
+        context={"data1": data1, "data2": data2, "data3": data3, "data_img": data_img})
 
 class HomeView(View):
     def get(self, request):
-        return render(request, template_name="main/home.html")
+        data1 = [{"img_path": "images/learn-img.jpg"}]
+        data2 = [{"header": "We are a Creative Digital Agency & Marketing Experts",
+        "definition1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus turpis nisl, vitae dictum mi semper convallis. Ut sapien leo, varius ac dapibus a, cursus quis ante.", 
+        "definition2": "Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla, cursus impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id neque."}
+        ]
+        return render(request, template_name="main/home.html",
+        context={"data1": data1, "data2": data2})
 
 class ServicesView(View):
     def get(self, request):
-        data = [{"img_path": "images/web-design.png",
+        data1 = [{"header1": "Explore The Services",
+        "header2": "We Offer For You",
+        "definition": "Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla, cursus impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id neque."}
+        ]
+
+        data2 = [{"img_path": "images/web-design.png",
         "title": "Web Design",
         "text": "Nullam quis libero in lorem accumsan sodales. Nam vel nisi eget."}, 
         {"img_path": "images/marketing.png",
         "title": "Marketing",
-        "text": "Nullam quis libero in lorem accumsan sodales. Nam vel nisi eget."}, 
-        {"img_path": "images/seo.png",
+        "text": "Nullam quis libero in lorem accumsan sodales. Nam vel nisi eget."}]
+
+        data3 = [{"img_path": "images/seo.png",
         "title": "SEO",
         "text": "Nullam quis libero in lorem accumsan sodales. Nam vel nisi eget."},
         {"img_path": "images/graphics-design.png",
@@ -77,10 +94,18 @@ class ServicesView(View):
         "text": "Nullam quis libero in lorem accumsan sodales. Nam vel nisi eget."}
         ]
         return render(request, template_name="main/services.html", 
-        context={"data": data})
+        context={"data1": data1, "data2": data2, "data3": data3})
 
 class NewsView(View):
     def get(self, request):
+
+        data_img = [{"img_path": "images/logo1.png"},
+          {"img_path": "images/logo2.png"},
+          {"img_path": "images/logo3.png"},
+          {"img_path": "images/logo4.png"},
+          {"img_path": "images/logo5.png"}
+          ]
+
         data = [{"img_path": "images/news1.jpg",
         "header": "Aenean ultrices lorem quis blandit tempor urabitur accumsan.",
         "definition": "Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue, et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purusrisus"
@@ -107,4 +132,4 @@ class NewsView(View):
         },  
         ]
         return render(request, template_name="main/news.html",
-        context={"data": data})
+        context={"data_img": data_img, "data": data})
