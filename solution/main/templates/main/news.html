@@ -1,27 +1,27 @@
 {% extends 'main/wrapper.html' %}
 {% load static %}
 {% block content %}
-<div class="container-fluid gtco-logo-area">
+<!-- <div class="container-fluid gtco-logo-area">
     <div class="container">
         <div class="row">
-            {% for item in data_img %}
-            <div class="col"><img src="{% static item.img_path %}" class="img-fluid" alt=""></div>
+            {% for item in data1 %}
+            <div class="col"><img src="{% static item.logo_path %}" class="img-fluid" alt=""></div>
             {% endfor %}
         </div>
     </div>
-</div>
+</div> -->
 <div class="container-fluid gtco-news" id="news">
     <div class="container">
-        <h2>Latest News & Articles</h2>
+        <h2>{{data2.text}}</h2>
         <div class="owl-carousel owl-carousel2 owl-theme">
-            {% for item in data %}
+            {% for item in data3 %}
             <div>
                 <div class="card text-center"><img class="card-img-top" src="{% static item.img_path %}" alt="">
                     <div class="card-body text-left pr-0 pl-0">
                         <h5>{{item.header}} </h5>
                         <p class="card-text">{{item.definition}}
                             . . . </p>
-                        <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        <a href="#">READ MORE<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>

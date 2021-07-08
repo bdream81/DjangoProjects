@@ -39,7 +39,7 @@
             <div class="col-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{item.title}}</h5>
+                        <h5 class="card-title">{{item.header}}</h5>
                         <p class="card-text">{{item.text}}</p>
                     </div>
                 </div>
@@ -77,8 +77,8 @@
                 <div class="oval mr-4"><img class="align-self-start" src="{% static item.img_path %}"
                         alt=""></div>
                 <div class="media-body">
-                    <h5 class="mb-0">{{item.name}}</h5>
-                    {{item.definition}}
+                    <h5 class="mb-0">{{item.header}}</h5>
+                    {{item.text}}
                 </div>
             </div>
             {% endfor %}
@@ -90,8 +90,8 @@
 <div class="container-fluid gtco-logo-area my-5">
     <div class="container">
         <div class="row">
-            {% for item in data_img %}
-            <div class="col"><img src="{% static item.img_path %}" class="img-fluid" alt=""></div>
+            {% for item in data5 %}
+            <div class="col"><img src="{% static item.logo_path %}" class="img-fluid" alt=""></div>
             {% endfor %}
             
         </div>

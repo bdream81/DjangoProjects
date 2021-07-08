@@ -5,14 +5,16 @@
 <div class="container-fluid gtco-features" id="services">
     <div class="container">
         <div class="row">
-            {% for item in data1 %}
+           
             <div class="col-lg-4">
+                {% for item in data1 %}
                 <h2> {{item.header1}}<br />
                     {{item.header2}} </h2>
                 <p> {{item.definition}} </p>
+                {% endfor %}
                 <a href="#">All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
-            {% endfor %}
+           
             <div class="col-lg-8">
                 <svg id="bg-services" width="100%" viewBox="0 0 1000 800">
                     <defs>
@@ -29,7 +31,7 @@
                         {% for item in data2 %}
                         <div class="card text-center">
                             <div class="oval"><img class="card-img-top" src="{% static item.img_path %}"
-                                    alt=""></div>
+                                alt=""></div>
                             <div class="card-body">
                                 <h3 class="card-title">{{item.title}}</h3>
                                 <p class="card-text">{{item.text}}</p>

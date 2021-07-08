@@ -35,17 +35,17 @@
                     </div>
                 </div>
             </div>
-            {% for item in data2 %}
             <div class="col-md-5">
+                {% for item in data2 %}
                 <h2> {{item.header}}</h2>
                 <p> {{item.definition1}} </p>
                 <p>
                     <small>{{item.definition2}}
                     </small>
                 </p>
-                <a href="#">Learn More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                {% endfor %}
+                <a href="#"> Learn More<i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>
