@@ -1,18 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import (ImgSingleHome, TextTextTextSingleHome, IntCharGroupAbout, 
 CustomersGroupAbout, ImgTextTextGroupAbout, LogoGroupAboutNews, 
 TextTextTextSingleServices, ImgTextTextGroupServices1, ImgTextTextGroupServices2, TextSinglesNews, 
 ImgTextTextGroupNews)
 
+from .forms import CustomUserCreationForm, CustomLoginForm
+from django.contrib import messages
+
 class HomeView(View):
     def get(self, request):
+        login_form = CustomLoginForm()
+        register_form = CustomUserCreationForm()
         data1 = ImgSingleHome.objects.all()
         data2 = TextTextTextSingleHome.objects.all()
         return render(request, template_name="main/home.html",
-        context={"data1": data1, "data2": data2})
+        context={"data1": data1, "data2": data2,  "login_form": login_form,
+                "register_form": register_form})
+
+    def post(self, request):
+        register_form = CustomUserCreationForm(request.POST)
+
+        if register_form.is_valid():
+            register_form.save()
+            messages.success(request, "Your accont has been created successfully!")
+            return redirect("login")
+    
+        messages.warning(request, register_form.error_messages)
+        register_form = CustomUserCreationForm
 
 class ServicesView(View):
+
     def get(self, request):
     
         data1 = TextTextTextSingleServices.objects.all()
