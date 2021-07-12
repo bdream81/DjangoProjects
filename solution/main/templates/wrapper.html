@@ -22,9 +22,9 @@
                     class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
             <div id="my-nav" class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'services_view' %}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about_view' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'news_view' %}">News</a></li>
                     <li class="nav-item">
                         {% if messages %}
 
@@ -62,7 +62,7 @@
                     {% else %}
                     <div class="m-2">
                         <!-- Button trigger modal -->
-                        <a href="{% url 'logout' %}" class="btn btn-lg text-light"
+                        <a href="{% url 'logout_view' %}" class="btn btn-lg text-light"
                             style="border-radius: 50px; font-weight: bolder; background-color: rgb(233, 8, 8);">
                             <span class="mx-3">Logout</span>
                         </a>
@@ -81,7 +81,7 @@
                                 <h2 class="mx-auto">Sign In</h2>
                             </div>
                             <div class="modal-body text-center">
-                                <form action="{% url 'login' %}" method="POST">
+                                <form action="{% url 'login_view' %}" method="POST">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <label for="username" class="font-weight-bold mx-2">
@@ -175,6 +175,7 @@
         <div class="container">
             <div class="row justify-content-around">
 
+                {% if request.get_full_path == '/about/' %}
                 <div class="col-lg-6" id="contact">
                     <form method="POST">
                         {% csrf_token %}
@@ -191,6 +192,9 @@
                         </div>
                     </form>
                 </div>
+
+
+
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-6">
@@ -254,6 +258,7 @@
                             </ul>
                         </div>
 
+                        {% endif %}
                         <div class="col-12 text-center">
                             <p>
                                 &copy; <a href="https://gettemplates.co" target="_blank">
