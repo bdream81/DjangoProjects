@@ -7,6 +7,8 @@ ImgTextTextGroupNews)
 
 from .forms import CustomUserCreationForm, CustomLoginForm
 from django.contrib import messages
+from django.core.mail import send_mail, BadHeaderError
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(View):
     def get(self, request):
@@ -29,7 +31,7 @@ class HomeView(View):
         messages.warning(request, register_form.error_messages)
         register_form = CustomUserCreationForm
 
-class ServicesView(View):
+class ServicesView(LoginRequiredMixin, View):
 
     def get(self, request):
     
@@ -40,7 +42,8 @@ class ServicesView(View):
         context={"data1": data1, "data2": data2, "data3": data3})
 
 
-class AboutView(View):
+
+class AboutView(LoginRequiredMixin, View):
     def get(self, request):
         data1 = IntCharGroupAbout.objects.all()
         data2 = CustomersGroupAbout.objects.all()
@@ -49,9 +52,28 @@ class AboutView(View):
         return render(request, template_name="main/about.html",
         context={"data1": data1, "data2": data2, "data3": data3, "data5": data5})
 
+    def post(self, request):
+        username = request.POST.get("full_name")
+        from_email=request.POST.get("from_email")
+        message_text=request.POST.get("message")
+
+        subject=f'Обращение пользователя  {username}с сайта solution.com'
+       
+        try:
+           
+            send_mail(subject, message_text, from_email, recipient_list=[from_email])
+            messages.success(request, 'Ваша заявка принята на обработку!')
+
+        except BadHeaderError as e:
+            messages.warning(request, e)
+
+        return redirect('about_view')
+        
 
 
-class NewsView(View):
+
+
+class NewsView(LoginRequiredMixin, View):
     def get(self, request):
         data2 = TextSinglesNews.objects.first()
         data3 = ImgTextTextGroupNews.objects.all()  
