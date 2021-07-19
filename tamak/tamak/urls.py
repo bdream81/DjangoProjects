@@ -12,8 +12,7 @@ urlpatterns = [
     path("reservation/", include("reservation.urls")),
     path("login/", LoginView.as_view(template_name="main/login.html"), name="login"),
     path(
-        "logout/", LogoutView.as_view(template_name="main/logout.html"), name="logout"
-    ),
+        "logout/", LogoutView.as_view(template_name="main/logout.html"), name="logout"),
     path("registration/", RegistrationView.as_view(), name="registration"),
 ]
 

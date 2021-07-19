@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth.models import User
 from django.forms.widgets import PasswordInput
+from django.contrib.auth.models import User
 
 class CustomLoginForm(AuthenticationForm):
     class Meta:

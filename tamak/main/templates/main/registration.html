@@ -4,7 +4,7 @@
 
 
 <div class="container-fluid bg-fixed bg-white section-padding overlay"
-    style="background-image: url({% static 'img/login-bg.jpg' %});" height="900px">
+    style="background-image: url({% static 'img/login-bg.jpg' %})" height="900px">
     <div class="row justify-content-around">
         <div class="col-lg-4 col-md-8 col-sm-8">
             <div class="section-content bg-white shadow py-5 text-center">
@@ -19,59 +19,30 @@
                     {% csrf_token %}
                     <div class="row justify-content-center">
                         <div class="col-12">
+                            {% for field in register_form %}
                             <div class="form-group">
-                                ...
+                                {{ field.label }}
                                 <br>
-                                ...
+                                {{ field }}
                             </div>
-
-                            <div class="form-group">
-                                ...
-                                <br>
-                                ...
-                            </div>
-
-                            <div class="form-group">
-                                ...
-                                <br>
-                                ...
-                            </div>
-
-                            <div class="form-group">
-                                ...
-                                <br>
-                                ...
-                            </div>
-
-                            <div class="form-group">
-                                ...
-                                <br>
-                                ...
-                            </div>
-
-                            <div class="form-group">
-                                ...
-                                <br>
-                                ...
-                            </div>
-
-                            <div class="form-group">
-                                ...
-                                ...
-                                ...
-                                ...
-                                ...
-                            </div>
+                            {% endfor %}
+                            <br>
+                            {% if errors %}
+                            {% for e in errors.values %}
+                            {{ e }}
+                            {% endfor %}
+                            {% endif %}
 
                             <br>
                             <button class="btn btn-primary btn-shadow btn-lg" type="submit"
                                 name="submit">Зарегистрироваться</button>
 
                         </div>
+                    </div>    
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-{% endblock content%}
+{% endblock content %}

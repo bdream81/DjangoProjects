@@ -18,49 +18,54 @@
 
                     </div>
                     <form method="POST" name="reservation" class="text-center">
-                        ...
+                        {% csrf_token %}
+                        {% if form.errors %}
                         <div class="col-12 form-group">
-                            ...
-                            ...
-                            ...
+                            {% for e in form.errors.values %}
+                            {{e}}
+                            {% endfor %}
                         </div>
+                        {% endif %}
+                        
                         <div class="col-12 form-group">
                             <div class="col-12">
-                                ...
+                                {{ form.phon_number.label_tag }}
                             </div>
                             <div class="col-12 d-flex">
-                                ...
+                                {{ form.phon_number }}
                             </div>
+                            
                         </div>
+                       
 
                         <div class="d-flex">
                             <div class="col-md-6 form-group px-0">
-                                ...
+                                {{ form.date_bron.label_tag }}
                                 <div class="col-12 form-group">
-                                    ...
+                                    {{ form.date_bron }}
                                 </div>
                             </div>
 
                             <div class="col-md-6 form-group px-0">
-                                ...
+                                {{ form.time_bron.label_tag }}
                                 <div class="col-12 form-group">
-                                    ...
+                                    {{ form.time_bron }}
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12 form-group">
                             <div class="col-12">
-                                ...
+                                {{ form.person.label_tag }}
                             </div>
                             <div class="col-12">
-                                ...
+                                {{ form.person }}
                             </div>
                         </div>
 
                         <div class="col-12 form-group">
-                            ...
-                            ...
+                            {{ form.comment.label_tag }}
+                            {{ form.comment }}
                         </div>
 
                         <div class="text-center">
