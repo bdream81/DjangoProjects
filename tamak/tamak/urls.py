@@ -14,6 +14,8 @@ urlpatterns = [
     path(
         "logout/", LogoutView.as_view(template_name="main/logout.html"), name="logout"),
     path("registration/", RegistrationView.as_view(), name="registration"),
+    path("menu/", include("menu.urls")),
+    path("team/", include("teams.urls")),
 ]
 
 

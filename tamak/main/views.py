@@ -120,3 +120,5 @@ class FeedbackDeleteView(UserPassesTestMixin, DeleteView):
         if self.request.user == feedback.author:
             return True
         return False
+
+

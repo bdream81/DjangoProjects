@@ -26,4 +26,14 @@ class Comment(models.Model):
     def __str__(self) -> str:
         return self.body
 
-    
+class UserProfile(models.Model):
+    django_user = models.OneToOneField(
+        User, 
+        on_delete=models.CASCADE, 
+        related_name="user_profile"
+        )
+    user_image = models.ImageField(upload_to="user_profiles", default='user_profiles/default.jpg')
+
+    def __str__(self) -> str:
+        return self.django_user.username
+

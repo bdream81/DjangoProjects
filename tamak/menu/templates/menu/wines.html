@@ -12,24 +12,25 @@
                     </span>
                 </h2>
             </div>
-            ...
+            {% for i in special %}
             <div class="row mt-5">
 
                 <div class="col-lg-4 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <a href="...">
-                        <img src="..." alt="" class="img-fluid shadow w-100">
+                    <a href="{% url 'wine_details' i.pk %}">
+                        <img src="{{ i.image_wina }}" alt="" class="img-fluid shadow w-100">
                     </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 align-self-center py-5 ml-5">
-                    <h2 class="special-number">0....</h2>
+                    <h2 class="special-number">0{{ i.pk }}</h2>
                     <div class="dishes-text">
-                        <h3><span>...</span><br>... ...</h3>
-                        <p class="pt-3">...</p>
-                        <h3 class="special-dishes-price">... сом</h3>
+                        <h3><span>{{ i.name_wina }}</span><br>{{ i.kategory }} {{ i.color }}</h3>
+                        <p class="pt-3">{{ i.production }}</p>
+                        <h3 class="special-dishes-price">{{ i.price_wina }}сом</h3>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -53,22 +54,23 @@
                     <div class="heading-menu">
                         <h3 class="text-center mb-5">Основные Вина</h3>
                     </div>
-                    ...
+                    {% for f in normal %}
                     <div class="menus d-flex align-items-center">
                         <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="..." alt="...">
+                            <img class="img-fluid" src="{{ f.image_wina }}" alt="...">
                         </div>
                         <div class="text-wrap mx-5">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    <h4>...</h4>
+                                    <h4>{{ f.name_wina }}</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">... сом</h4>
+                                    <h4 class="text-muted menu-price">{{ f.price_wina }}сом</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

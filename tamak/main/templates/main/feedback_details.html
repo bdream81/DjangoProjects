@@ -20,11 +20,13 @@
                     </h5>
                 </em>
             </div>
+            {% if user == object.author %}
             <div class="col-12 text-center mt-2">
                 <a type="button" class="btn btn-primary" style="color: rgb(233, 233, 217);" href="{% url 'feedback_update' object.pk %}">Изменить</a>
                 <a class="btn btn-dark" style="color:rgb(233, 233, 217);"
                     href="{% url 'feedback_delete' object.pk %}">Удалить</a>
             </div>
+            {% endif %}
         </div>
        
 
