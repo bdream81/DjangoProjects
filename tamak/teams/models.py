@@ -28,7 +28,7 @@ class Team(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self) -> str:
-        return self.user.username
+        return self.user.user
 
     def get_absolute_url(self):
         return reverse('team_view')
