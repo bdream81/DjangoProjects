@@ -12,14 +12,14 @@
 </div> -->
 <div class="container-fluid gtco-news" id="news">
     <div class="container">
-        <h2>{{data2.text}}</h2>
+        <h2>{{ data2.text }}</h2>
         <div class="owl-carousel owl-carousel2 owl-theme">
             {% for item in data3 %}
             <div>
                 <div class="card text-center"><img class="card-img-top" src="{% static item.img_path %}" alt="">
                     <div class="card-body text-left pr-0 pl-0">
-                        <h5>{{item.header}} </h5>
-                        <p class="card-text">{{item.definition}}
+                        <h5>{{ item.header }} </h5>
+                        <p class="card-text">{{ item.definition }}
                             . . . </p>
                         <a href="#">READ MORE<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                     </div>

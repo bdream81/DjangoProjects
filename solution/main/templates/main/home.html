@@ -37,18 +37,14 @@
             </div>
             <div class="col-md-5">
                 {% for item in data2 %}
-                <h2> {{item.header}}</h2>
-                <p> {{item.definition1}} </p>
+                <h2> {{ item.header }}</h2>
+                <p> {{ item.definition1 }} </p>
                 <p>
-                    <small>{{item.definition2}}
+                    <small>{{ item.definition2 }}
                     </small>
                 </p>
-<<<<<<< HEAD
-                {% endfor %}
-                <a href="#"> Learn More<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-=======
                 <a href="{% url 'about_view' %}">Learn More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
->>>>>>> upstream/main
+                {% endfor %}
             </div>
         </div>
     </div>
